@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Технологічні карти · Лабораторна №4</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Основи WEB технологій · Лабораторна №4 · Варіант 11</p>
+    <h1>Технологічні карти</h1>
+    <p class="intro">Деталі, операції та тривалість обробки в одному реєстрі.</p>
+    <section aria-labelledby="form-title">
+      <h2 id="form-title">Нова технологічна карта</h2>
+      <form id="card-form">
+        <label>Деталь<input name="part" required maxlength="120" placeholder="Наприклад, вал приводу"></label>
+        <label>Вид обробки<input name="processingType" required maxlength="120" placeholder="Наприклад, точіння"></label>
+        <label>Тривалість, хв<input name="durationMinutes" type="number" min="0" step="any" required placeholder="12.5"></label>
+        <div class="actions"><button type="submit" id="save">Додати карту</button><button type="button" id="cancel" class="secondary" hidden>Скасувати</button></div>
+      </form>
+    </section>
+    <p id="message" role="status" aria-live="polite"></p>
+    <section aria-labelledby="list-title">
+      <div class="list-heading"><h2 id="list-title">Реєстр карт</h2><button id="refresh" class="secondary">Оновити</button></div>
+      <p id="empty" hidden>Поки що немає записів. Додайте першу технологічну карту.</p>
+      <div class="table-wrap"><table><thead><tr><th>Деталь</th><th>Вид обробки</th><th>Хвилини</th><th>Дії</th></tr></thead><tbody id="cards"></tbody></table></div>
+    </section>
+    <dialog id="details"><h2>Технологічна карта</h2><dl id="detail-list"></dl><button id="close-details">Закрити</button></dialog>
+    <dialog id="delete-dialog"><h2>Видалити карту?</h2><p id="delete-name"></p><p>Запис буде видалено з бази даних.</p><div class="actions"><button id="confirm-delete">Видалити</button><button id="cancel-delete" class="secondary">Скасувати</button></div></dialog>
+    <footer>Node.js · Express · MongoDB · <a href="/api/process-cards">Відкрити JSON API</a></footer>
+  </main>
+</body>
+</html>
